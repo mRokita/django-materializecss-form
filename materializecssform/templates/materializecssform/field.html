@@ -52,7 +52,7 @@
     <div class="col {{ classes.label }}">
 
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        <input type="date" id="{{ field.auto_id }}" name="{{ field.name }}" class="datepicker {{field.widget.attrs.class}}" value="{% if field.value %}{{ field.value }}{% endif %}">
+        <input type="date" id="{{ field.auto_id }}" name="{{ field.name }}" class="datepicker {{field.field.widget.attrs.class}}" value="{% if field.value %}{{ field.value }}{% endif %}">
 
             {% for error in field.errors %}
                 <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
@@ -108,7 +108,7 @@
 
     {% elif field|is_textarea %}
         <div class="input-field col {{ classes.label }}">
-            <textarea id="{{ field.auto_id }}" class="materialize-textarea {{field.widget.attrs.class}}" name="{{field.name}}">{% if field.value %}{{ field.value }}{% endif %}</textarea>
+            <textarea id="{{ field.auto_id }}" class="materialize-textarea {{field.field.widget.attrs.class}}" name="{{field.name}}">{% if field.value %}{{ field.value }}{% endif %}</textarea>
             {% if field.auto_id %}
                 <label class="{{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
             {% endif %}
@@ -137,7 +137,7 @@
                     {{ field }}
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate {{field.widget.attrs.class}}" type="text">
+                    <input class="file-path validate {{field.field.widget.attrs.class}}" type="text">
                 </div>
             </div>
 
